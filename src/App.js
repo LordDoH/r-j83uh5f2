@@ -1,15 +1,18 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="container">
-        <textarea rows="3"></textarea>
-        <div className="counter">0</div>
-      </div>
-    );
+function App () {
+  const [string,setString]=useState({field : ''})
+
+  const onChange = (e) => {
+    setString({...string, field : e.target.value})
   }
+  return (
+    <div className="container">
+      <textarea rows="3" onChange={onChange} ></textarea>
+      <div className="counter">{string.field.length}</div>
+    </div>
+  );
 }
 
 export default App;
